@@ -3,7 +3,7 @@ package account
 import (
 	"context"
 
-	"github.com/tinrab/spidey/account/pb"
+	"github.com/kaansari/spidey/account/pb"
 	"google.golang.org/grpc"
 )
 
@@ -25,10 +25,10 @@ func (c *Client) Close() {
 	c.conn.Close()
 }
 
-func (c *Client) PostAccount(ctx context.Context, name string) (*Account, error) {
+func (c *Client) PostAccount(ctx context.Context, name string, email string) (*Account, error) {
 	r, err := c.service.PostAccount(
 		ctx,
-		&pb.PostAccountRequest{Name: name},
+		&pb.PostAccountRequest{Name: name, Email: email},
 	)
 	if err != nil {
 		return nil, err

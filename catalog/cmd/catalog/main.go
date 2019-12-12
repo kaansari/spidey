@@ -5,8 +5,8 @@ import (
 	"time"
 
 	"github.com/kelseyhightower/envconfig"
-	"github.com/tinrab/retry"
-	"github.com/tinrab/spidey/catalog"
+	"github.com/kaansari/retry"
+	"github.com/kaansari/spidey/catalog"
 )
 
 type Config struct {

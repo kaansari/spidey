@@ -2,10 +2,10 @@
 package graph
 
 import (
-  "github.com/99designs/gqlgen/graphql"
-  "github.com/tinrab/spidey/account"
-	"github.com/tinrab/spidey/catalog"
-	"github.com/tinrab/spidey/order"
+	"github.com/99designs/gqlgen/graphql"
+	"github.com/kaansari/spidey/account"
+	"github.com/kaansari/spidey/catalog"
+	"github.com/kaansari/spidey/order"
 )
 
 type Server struct {
@@ -44,25 +44,25 @@ func NewGraphQLServer(accountUrl, catalogURL, orderURL string) (*Server, error) 
 }
 
 func (s *Server) Mutation() MutationResolver {
- return  &mutationResolver{
-   server: s,
- }
+	return &mutationResolver{
+		server: s,
+	}
 }
 
 func (s *Server) Query() QueryResolver {
- return  &queryResolver{
-   server: s,
- }
+	return &queryResolver{
+		server: s,
+	}
 }
 
 func (s *Server) Account() AccountResolver {
-  return &accountResolver{
-    server: s,
-  }
+	return &accountResolver{
+		server: s,
+	}
 }
 
 func (s *Server) ToExecutableSchema() graphql.ExecutableSchema {
-  return NewExecutableSchema(Config{
-    Resolvers: s,
-  })
+	return NewExecutableSchema(Config{
+		Resolvers: s,
+	})
 }

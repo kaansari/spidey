@@ -2,24 +2,41 @@
 
 package graph
 
-import (
-	time "time"
-)
-
 type AccountInput struct {
+	Name        string  `json:"name"`
+	Email       string  `json:"email"`
+	MobilePhone *string `json:"mobilePhone"`
+}
+
+type Category struct {
+	ID   string `json:"id"`
 	Name string `json:"name"`
 }
 
-type Order struct {
-	ID         string           `json:"id"`
-	CreatedAt  time.Time        `json:"createdAt"`
-	TotalPrice float64          `json:"totalPrice"`
-	Products   []OrderedProduct `json:"products"`
+type Location struct {
+	ID               string      `json:"id"`
+	Name             string      `json:"name"`
+	GoogleAccountID  *string     `json:"googleAccountId"`
+	GoogleLocationID *string     `json:"googleLocationId"`
+	PlaceID          *string     `json:"placeId"`
+	StoreCode        *string     `json:"storeCode"`
+	Description      *string     `json:"description"`
+	Address          *string     `json:"address"`
+	ZipCode          *string     `json:"zipCode"`
+	Phone            *string     `json:"phone"`
+	WebsiteURL       *string     `json:"websiteURL"`
+	PhotoURL         *string     `json:"photoURL"`
+	Category         []*Category `json:"category"`
+	Coordinates      []float64   `json:"coordinates"`
+	BusinessAccount  *string     `json:"businessAccount"`
+	IsVerified       *bool       `json:"isVerified"`
+	IsPublished      *bool       `json:"isPublished"`
+	IsActive         *bool       `json:"isActive"`
 }
 
 type OrderInput struct {
-	AccountID string              `json:"accountId"`
-	Products  []OrderProductInput `json:"products"`
+	AccountID string               `json:"accountId"`
+	Products  []*OrderProductInput `json:"products"`
 }
 
 type OrderProductInput struct {

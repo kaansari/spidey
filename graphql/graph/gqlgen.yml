@@ -2,7 +2,9 @@ schema: schema.graphql
 
 models:
   Account:
-    model: github.com/tinrab/spidey/graphql/graph.Account
+    model: github.com/kaansari/spidey/graphql/graph.Account
     fields:
       orders:
         resolver: true
+  Order:
+    model: github.com/kaansari/spidey/graphql/graph.Order

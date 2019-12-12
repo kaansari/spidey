@@ -4,6 +4,43 @@ type Account {
   id: String!
   name: String!
   orders: [Order!]!
+  email: String
+  photoURL: String
+  mobilePhone: String
+  type: String
+  locations: [Location!]!
+  emailVerified: Boolean
+  isActive: Boolean
+  createdAt: Time!
+
+
+}
+
+type Location{
+    id: String!
+    name: String!
+    googleAccountId: String
+    googleLocationId: String
+    placeId:String
+    storeCode:String
+    description:String
+    address:String
+    zipCode:String
+    phone:String
+    websiteURL:String
+    photoURL: String
+    category: [Category!]!
+    coordinates: [Float!]!
+    businessAccount: String
+    isVerified:Boolean
+    isPublished:Boolean
+    isActive:Boolean
+  }
+
+type Category{
+  id:String!
+  name:String!
+
 }
 
 type Product {
@@ -35,6 +72,8 @@ input PaginationInput {
 
 input AccountInput {
   name: String!
+  email: String!
+  mobilePhone: String
 }
 
 input ProductInput {

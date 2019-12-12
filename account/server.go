@@ -6,7 +6,7 @@ import (
 	"fmt"
 	"net"
 
-	"github.com/tinrab/spidey/account/pb"
+	"github.com/kaansari/spidey/account/pb"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/reflection"
 )
@@ -27,7 +27,7 @@ func ListenGRPC(s Service, port int) error {
 }
 
 func (s *grpcServer) PostAccount(ctx context.Context, r *pb.PostAccountRequest) (*pb.PostAccountResponse, error) {
-	a, err := s.service.PostAccount(ctx, r.Name)
+	a, err := s.service.PostAccount(ctx, r.Name, r.Email)
 	if err != nil {
 		return nil, err
 	}
@@ -65,5 +65,11 @@ func (s *grpcServer) GetAccounts(ctx context.Context, r *pb.GetAccountsRequest) 
 			},
 		)
 	}
+	return &pb.GetAccountsResponse{Accounts: accounts}, nil
+}
+
+func (s *grpcServer) GetFriends(ctx context.Context, r *pb.GetAccountRequest) (*pb.GetAccountsResponse, error) {
+	//not implemented
+	accounts := []*pb.Account{}
 	return &pb.GetAccountsResponse{Accounts: accounts}, nil
 }

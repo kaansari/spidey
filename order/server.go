@@ -7,9 +7,9 @@ import (
 	"log"
 	"net"
 
-	"github.com/tinrab/spidey/account"
-	"github.com/tinrab/spidey/catalog"
-	"github.com/tinrab/spidey/order/pb"
+	"github.com/kaansari/spidey/account"
+	"github.com/kaansari/spidey/catalog"
+	"github.com/kaansari/spidey/order/pb"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/reflection"
 )

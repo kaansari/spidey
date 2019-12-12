@@ -2,7 +2,7 @@ package main
 
 import (
   "github.com/kelseyhightower/envconfig"
-  "github.com/tinrab/spidey/graphql/graph"
+  "github.com/kaansari/spidey/graphql/graph"
   "github.com/99designs/gqlgen/handler"
   "log"
   "net/http"
